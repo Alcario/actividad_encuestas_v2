@@ -1,0 +1,235 @@
+/* Estilos para el menú de navegación */
+nav {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+li {
+  margin: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: black;
+}
+
+/* Estilos para los formularios */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.txtPregunta{
+  margin-bottom: 15px;
+}
+
+.item-left{
+  align-self: flex-start;
+}
+
+.item-right{
+  align-self: flex-start;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: #007bff;
+}
+
+button {
+  border-radius: 10px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+button:hover {
+  border-radius: 5px;
+}
+
+/* Estilos para el listado de encuestas */
+.encuesta-item-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  transition: transform 0.3s;
+  margin: 10px 0;
+}
+
+.encuesta-item-container:hover {
+  transform: translateY(-5px);
+}
+
+.encuesta-item h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.encuesta-item p {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el contenedor del formulario (efecto de tarjeta) */
+.form-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.form-card h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los elementos del formulario */
+.form-card label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-card input[type="text"],
+.form-card textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s;
+}
+
+.form-card input[type="text"]:focus,
+.form-card textarea:focus {
+  border-color: #007bff;
+}
+
+.form-card button { 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.agregarPregunta, .agregarRespuesta{
+  background-color: #007bff;
+}
+
+.agregarPregunta:hover, .agregarRespuesta:hover{
+  background-color: #0056b3;
+}
+
+.form-card hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* CSS para alinear elementos del formulario */
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-group input[type="text"] {
+  flex: 2;
+}
+
+.pregunta-label {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  width: 30%; /* Ajusta el ancho según tus necesidades */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.eliminarPregunta, .eliminarRepuesta {
+  background-color: #fd5858;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+}
+
+.eliminarPregunta:hover, .eliminarRepuesta:hover {
+  background-color: #f71616; /* Rojo claro en hover */
+}
+
+
+.guardarEncuesta{
+  background-color: #4CAF50 !important;
+  color: white !important;
+}
+
+.guardarEncuesta:hover {
+  background-color: #46a049 !important; /* Cambia el color de fondo al verde deseado en hover */
+}
+
+.containerPreguntas, .containerBotones{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.txtRespuesta{
+  margin: 0 !important;
+}
+
+.enlaces{
+  color: #0056b3;
+}
