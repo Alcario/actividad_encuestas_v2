@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const CrearEncuestaBasica = ({ agregarEncuesta }) => {
   const {
+    register,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -37,6 +38,25 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
   };
 
   const onSubmit = () => {
+    // Verificar si hay al menos una pregunta
+    if (preguntas.length === 0) {
+      alert("Debes agregar al menos una pregunta.");
+      return;
+    }
+
+    // Verificar que cada pregunta tenga al menos una respuesta
+    if (
+      preguntas.every(
+        (pregunta) =>
+          pregunta.opciones.length === 0 ||
+          pregunta.opciones.some((opcion) => opcion.texto.trim().length === 0)
+      )
+    ) {
+      alert("Cada pregunta debe tener al menos una respuesta.");
+      return;
+    }
+
+    // Si pasó las validaciones, proceder a guardar la encuesta
     const nuevasPreguntas = preguntas.length > 0 ? preguntas : [];
     const nuevaEncuesta = {
       titulo,
@@ -56,18 +76,34 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
           type="text"
           id="titulo"
           name="titulo"
+          {...register("titulo", {
+            required: "Este campo es obligatorio",
+            maxLength: {
+              value: 50,
+              message: "El título debe tener menos de 50 caracteres",
+            },
+          })}
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
         />
-        {errors.titulo && <p>{errors.titulo.message}</p>}
+        {errors.titulo && <p className="error">{errors.titulo.message}</p>}
         <label htmlFor="descripcion">Descripción:</label>
         <textarea
           id="descripcion"
           name="descripcion"
+          {...register("descripcion", {
+            required: "Este campo es obligatorio",
+            maxLength: {
+              value: 200,
+              message: "La descripción debe tener menos de 200 caracteres",
+            },
+          })}
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
         />
-        {errors.descripcion && <p>{errors.descripcion.message}</p>}
+        {errors.descripcion && (
+          <p className="error">{errors.descripcion.message}</p>
+        )}
 
         {preguntas.map((pregunta, preguntaIndex) => (
           <div key={preguntaIndex}>

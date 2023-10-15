@@ -38,6 +38,14 @@ form {
   max-width: 600px;
   margin: 0 auto;
 }
+
+.error {
+  background-color: #ffe6e6; /* Color de fondo */
+  border: 1px solid #ff4d4d; /* Borde */
+  color: #ff4d4d; /* Color de texto */
+  padding: 5px; /* Espaciado interno */
+}
+
 label {
   display: block;
   margin-bottom: 10px;
