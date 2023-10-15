@@ -115,6 +115,11 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
               >
                 Pregunta {preguntaIndex + 1}:
               </label>
+              {errors.descripcion && (
+                <p className="error">
+                  {errors.respuestas[preguntaIndex]?.pregunta?.message}
+                </p>
+              )}
               {/* Botón para eliminar la pregunta */}
               <button
                 type="button"
@@ -128,6 +133,13 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
               type="text"
               id={`preguntas[${preguntaIndex}].pregunta`}
               className="txtPregunta"
+              {...register(`preguntas[${preguntaIndex}].pregunta`, {
+                required: "Este campo es obligatorio",
+                maxLength: {
+                  value: 200,
+                  message: "La pregunta debe tener menos de 200 caracteres",
+                },
+              })}
               value={pregunta.pregunta}
               onChange={(e) => {
                 const newPreguntas = [...preguntas];
@@ -135,6 +147,11 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
                 setPreguntas(newPreguntas);
               }}
             />
+            {errors.preguntas && (
+              <p className="error">
+                {errors.preguntas[preguntaIndex]?.pregunta?.message}
+              </p>
+            )}
             {/* Respuestas */}
             {pregunta.opciones &&
               pregunta.opciones.map((opcion, respuestaIndex) => (
@@ -146,6 +163,14 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
                     type="text"
                     id={`respuestas[${respuestaIndex}].respuesta`}
                     className="txtRespuesta"
+                    {...register(`respuestas[${respuestaIndex}].respuesta`, {
+                      required: "Este campo es obligatorio",
+                      maxLength: {
+                        value: 200,
+                        message:
+                          "La respuesta debe tener menos de 200 caracteres",
+                      },
+                    })}
                     value={opcion.texto}
                     onChange={(e) => {
                       const newPreguntas = [...preguntas];
@@ -155,6 +180,11 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
                       setPreguntas(newPreguntas);
                     }}
                   />
+                  {errors.respuestas && (
+                    <p className="error">
+                      {errors.respuestas[respuestaIndex]?.respuesta?.message}
+                    </p>
+                  )}
                   <button
                     type="button"
                     className="eliminarRepuesta"
