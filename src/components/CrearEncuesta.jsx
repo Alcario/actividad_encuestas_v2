@@ -115,11 +115,6 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
               >
                 Pregunta {preguntaIndex + 1}:
               </label>
-              {errors.descripcion && (
-                <p className="error">
-                  {errors.respuestas[preguntaIndex]?.pregunta?.message}
-                </p>
-              )}
               {/* Botón para eliminar la pregunta */}
               <button
                 type="button"
@@ -180,11 +175,7 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
                       setPreguntas(newPreguntas);
                     }}
                   />
-                  {errors.respuestas && (
-                    <p className="error">
-                      {errors.respuestas[respuestaIndex]?.respuesta?.message}
-                    </p>
-                  )}
+
                   <button
                     type="button"
                     className="eliminarRepuesta"
@@ -194,6 +185,11 @@ const CrearEncuestaBasica = ({ agregarEncuesta }) => {
                   >
                     Eliminar Respuesta
                   </button>
+                  {errors.respuestas && (
+                    <p className="error">
+                      {errors.respuestas[respuestaIndex]?.respuesta?.message}
+                    </p>
+                  )}
                 </div>
               ))}
 
